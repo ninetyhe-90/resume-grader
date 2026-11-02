@@ -13,7 +13,7 @@
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square" alt="Python 3.10+">
   <img src="https://img.shields.io/badge/Dependencies-stdlib%20only-brightgreen?style=flat-square" alt="Dependencies: stdlib only">
   <img src="https://img.shields.io/badge/Judge-Jev%20(TypeSafe)-7c3aed?style=flat-square" alt="Judge: Jev">
-  <img src="https://img.shields.io/badge/Skill-CodeBuddy-1d4ed8?style=flat-square" alt="Skill for CodeBuddy">
+  <img src="https://img.shields.io/badge/Skill-Agent%20Skills-1d4ed8?style=flat-square" alt="Portable Agent Skill">
 </p>
 
 <p align="center">
@@ -36,7 +36,9 @@
 
 ## 这是什么
 
-一个 CodeBuddy skill:给它一份简历(可选再给一份岗位 JD),输出 **优秀 / 良 / 差** 三档结论、分项分数、触发的封顶规则和可执行的修改建议。
+一个可移植的 Agent Skill(也可以直接当命令行工具用):给它一份简历(可选再给一份岗位 JD),输出 **优秀 / 良 / 差** 三档结论、分项分数、触发的封顶规则和可执行的修改建议。
+
+遵循通用 Agent Skills 结构(`SKILL.md` + `scripts/` + `references/`),不绑定某个客户端。
 
 | 部分 | 做什么 | 特点 |
 |---|---|---|
@@ -80,15 +82,24 @@
 
 要求 Python 3.10 及以上,只用标准库,没有 `pip install` 步骤。
 
-**1. 安装 skill**
+**1. 安装 skill(可选)**
+
+不安装也能用:直接跑下面的 Python 命令即可。想让它作为 Agent Skill 被自动加载时,把仓库放进你所用工具的 skills 目录:
 
 ```bash
-# 个人使用,所有项目可用
-cp -R resume-grader ~/.codebuddy/skills/resume-grader
+# 个人使用,所有项目可用(<skills-dir> 见下表)
+cp -R resume-grader <skills-dir>/resume-grader
 
 # 或只给某个项目使用
-cp -R resume-grader <项目根目录>/.codebuddy/skills/resume-grader
+cp -R resume-grader <项目根目录>/<skills-dir>/resume-grader
 ```
+
+| 工具 | `<skills-dir>` |
+|---|---|
+| 通用 Agent Skills 约定 | `~/.agents/skills` |
+| Claude Code | `~/.claude/skills` |
+| CodeBuddy | `~/.codebuddy/skills` |
+| 其他工具 | 查该工具的 skills 目录文档 |
 
 **2. 读 PDF 需要 pdftotext(poppler)**
 
@@ -111,7 +122,7 @@ export JEV_API_KEY="你的密钥"
 python3 -B scripts/score_resume.py resume.pdf
 ```
 
-或者在 CodeBuddy 里直接说:"帮我给这份简历打分" 并附上文件路径。
+也可以在你使用的 Agent 工具里直接说:"帮我给这份简历打分" 并附上文件路径。
 
 ---
 
@@ -183,7 +194,7 @@ export JEV_ALLOW_HTTP=1  # 仅当网关只提供 http 时需要
 
 不要把密钥写进项目文件、命令行参数,也不要提交到 git。用 `.env` 文件管理时,务必加进 `.gitignore`。
 
-在 CodeBuddy 里使用时,环境变量要在启动 CodeBuddy 的那个终端或系统环境里已经存在。启动之后再 `export` 不会传给已运行的进程,需要重启。
+在 Agent 工具里使用时,环境变量要在启动该工具的那个终端或系统环境里已经存在。启动之后再 `export` 不会传给已运行的进程,需要重启。
 
 ### 验证配置
 
@@ -251,7 +262,7 @@ python3 -B scripts/score_resume.py resume.pdf --no-jev
 
 `--no-jev` 模式等级最高到"良",报告会标注 `Judge: NONE`,不是完整评估。
 
-在 CodeBuddy 里触发的说法示例:
+在任意 Agent 工具里触发的说法示例:
 
 - "帮我给这份简历打分" 并附上文件路径
 - "这份简历对照这个 JD,是优秀、良还是差"
