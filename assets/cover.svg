@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-labelledby="t d">
+  <title id="t">Resume Grader</title>
+  <desc id="d">A resume scored 96 and graded Excellent, with a Poor, Good, Excellent scale.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1020"/>
+      <stop offset="0.55" stop-color="#0f1b3a"/>
+      <stop offset="1" stop-color="#14264f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.82" cy="0.45" r="0.5">
+      <stop offset="0" stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="scale" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ef4444"/>
+      <stop offset="0.45" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#9cc2ff"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#ffffff" fill-opacity="0.07"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="400" fill="url(#bg)"/>
+  <rect width="1280" height="400" fill="url(#dots)"/>
+  <rect width="1280" height="400" fill="url(#glow)"/>
+
+  <g font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <!-- left: text -->
+    <g transform="translate(80 0)">
+      <rect x="0" y="62" width="206" height="30" rx="15" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
+      <circle cx="20" cy="77" r="5" fill="#22c55e"/>
+      <text x="36" y="82" font-size="13" font-weight="600" letter-spacing="1.6" fill="#cfe0ff">SKILL FOR CODEBUDDY</text>
+
+      <text x="0" y="178" font-size="76" font-weight="800" fill="url(#title)" letter-spacing="-1.5">Resume Grader</text>
+      <text x="2" y="222" font-size="26" font-weight="500" fill="#e6efff">Score a resume. Excellent, Good or Poor.</text>
+      <text x="2" y="256" font-size="18" fill="#9fb4d9">Deterministic checks plus the Jev decision model.</text>
+
+      <g transform="translate(2 290)" font-size="15" font-weight="600">
+        <rect x="0" y="0" width="118" height="36" rx="18" fill="#1d4ed8" fill-opacity="0.35" stroke="#60a5fa" stroke-opacity="0.6"/>
+        <text x="59" y="23" text-anchor="middle" fill="#bcd6ff">Rules</text>
+        <rect x="130" y="0" width="118" height="36" rx="18" fill="#7c3aed" fill-opacity="0.35" stroke="#a78bfa" stroke-opacity="0.6"/>
+        <text x="189" y="23" text-anchor="middle" fill="#ddd0ff">Jev</text>
+        <rect x="260" y="0" width="118" height="36" rx="18" fill="#059669" fill-opacity="0.35" stroke="#34d399" stroke-opacity="0.6"/>
+        <text x="319" y="23" text-anchor="middle" fill="#c4f5df">Gates</text>
+      </g>
+    </g>
+
+    <!-- right: resume card -->
+    <g transform="translate(850 40) rotate(2 160 160)" filter="url(#shadow)">
+      <rect x="0" y="0" width="330" height="320" rx="20" fill="#f8fafc"/>
+      <rect x="0" y="0" width="330" height="64" rx="20" fill="#e8eef9"/>
+      <rect x="0" y="40" width="330" height="24" fill="#e8eef9"/>
+      <circle cx="40" cy="32" r="16" fill="#94a3b8"/>
+      <rect x="68" y="20" width="110" height="10" rx="5" fill="#475569"/>
+      <rect x="68" y="38" width="76" height="8" rx="4" fill="#94a3b8"/>
+
+      <!-- score ring -->
+      <g transform="translate(272 32)">
+        <circle r="22" fill="#ffffff"/>
+        <circle r="22" fill="none" stroke="#e2e8f0" stroke-width="6"/>
+        <circle r="22" fill="none" stroke="#22c55e" stroke-width="6" stroke-linecap="round"
+                stroke-dasharray="132.7 138.2" transform="rotate(-90)"/>
+        <text y="6" text-anchor="middle" font-size="17" font-weight="800" fill="#0f172a">96</text>
+      </g>
+
+      <rect x="24" y="86" width="90" height="9" rx="4.5" fill="#64748b"/>
+      <rect x="24" y="108" width="282" height="7" rx="3.5" fill="#cbd5e1"/>
+      <rect x="24" y="124" width="250" height="7" rx="3.5" fill="#cbd5e1"/>
+      <rect x="24" y="140" width="268" height="7" rx="3.5" fill="#cbd5e1"/>
+
+      <rect x="24" y="164" width="90" height="9" rx="4.5" fill="#64748b"/>
+      <rect x="24" y="186" width="282" height="7" rx="3.5" fill="#bbf7d0"/>
+      <rect x="24" y="202" width="236" height="7" rx="3.5" fill="#cbd5e1"/>
+      <rect x="24" y="218" width="262" height="7" rx="3.5" fill="#bbf7d0"/>
+
+      <!-- grade scale -->
+      <rect x="24" y="252" width="282" height="12" rx="6" fill="url(#scale)"/>
+      <g transform="translate(280 258)">
+        <circle r="11" fill="#ffffff" stroke="#16a34a" stroke-width="3"/>
+      </g>
+      <g font-size="11" font-weight="700" fill="#64748b">
+        <text x="24" y="288">POOR</text>
+        <text x="148" y="288" text-anchor="middle">GOOD</text>
+        <text x="306" y="288" text-anchor="end" fill="#15803d">EXCELLENT</text>
+      </g>
+    </g>
+  </g>
+</svg>
